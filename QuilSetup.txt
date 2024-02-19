@@ -1,0 +1,144 @@
+1. Secure Hardware:
+	- Provisions a VPS running Ubuntu 22.04
+	- SSH into your VPS
+
+2. Prerequisite Software:
+
+	- sudo apt -q update
+	- sudo apt-get install jq -y
+
+	Check git version: must show git version 2.34.1
+
+	- git --version
+
+	Install golang 1.20.14:
+
+	- wget https://go.dev/dl/go1.20.14.linux-amd64.tar.gz
+
+	- sudo tar -xvf go1.20.14.linux-amd64.tar.gz -C /usr/local
+
+	- echo 'export GOROOT=/usr/local/go' >> ~/.bashrc
+	- echo 'export GOPATH=$HOME/go' >> ~/.bashrc
+	- echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.bashrc
+
+	- source ~/.bashrc
+
+	Check for: go version go1.20.14 linux/amd64
+
+	- go version
+
+3. Clone the Quilibrium Ceremony Client repo from github:
+
+	- git clone https://github.com/QuilibriumNetwork/ceremonyclient.git
+
+	- cd ceremonyclient/node
+
+4. Start the Node [DEVELOPMENT]:
+
+	- GOEXPERIMENT=arenas go run ./...
+
+	You should see this as proof you have started your ceremonyclient node successfully
+	
+	<I will insert an image here>
+
+5. Get your Node Peer ID:
+
+	- cd ~/ceremonyclient/node
+	- GOEXPERIMENT=arenas go run ./... -peer-id
+
+	Save your Peer ID for reference
+
+6. Enable gRPC for your Ceremony Client node (To earn $QUIL rewards):
+	- cd ~/ceremonyclient/node
+	- nano .config/config.yml
+	scroll down to the line, listenGrpcMultiaddr: "" and replace with the following:
+	- listenGRpcMultiaddr: /ip4/127.0.0.1/tcp/8337
+	** Enabling RESTMultiplier is optional, but if you want to enable it, replace listenRESTMultiaddr: "" with:
+	- listenGrpcMultiaddr: /ip4/127.0.0.1/tcp/8338
+	
+	<enter image here for better visual explanation>
+	
+	Save and exit:
+	- ctrl o    # to save
+	- ctrl x    # to exit
+	
+	Enable firewall and allow necessary ports:
+	
+	- sudo ufw allow 22 && sudo ufw allow 8336 && sudo ufw allow 8337 && sudo ufw allow 8338 && sudo ufw allow 8317 && sudo ufw allow 8316 && sudo ufw enable
+
+	Confirm firewall status:
+	
+	- sudo ufw status
+	
+	Restart your node by running:
+
+	- GOEXPERIMENT=arenas go run ./...
+	
+	Let the node run for 10-30 minutes before being able to check your QUIL balance
+	
+7. Get your $GUIL balance:
+
+	- cd ~/ceremonyclient/node
+	
+	- GOEXPERIMENT=arenas go run ./... -balance
+	
+	You should see the response below:
+	<insert response image here>
+	
+8. Safekeep and Backup your Private Keypair(IMPORTANT!!):
+
+	Backup the folliwn files:
+	
+	- node/.config/config.yml
+	- node/.config/keys.yml
+
+	The 'keys.yml' contains your private keypair
+	
+	The key in the 'config.yml' encrypts the keypair in the node/.config/keys.yml
+	
+9. Start the Quilibrium Node as a Service [PRODUCTION]:
+
+	Build the node app:
+	
+	- cd ~/ceremonyclient/node
+	- GOEXPERIMENT=arenas go install -v -n -a ./...
+		-This will build and compile the app binary in the /root/go/bin/node folder
+	
+	Create the service configuration file:
+	- cd && nano /lib/systemd/system/ceremonyclient.service
+	
+	Enter the following text inside the 'ceremonyclient.service' file:
+
+		[unit]
+		Description=Ceremony Client Go App Service
+
+		[Service]
+		Type=simple
+		Restart=always
+		RestartSec=5s
+		WorkingDirectory=/root/ceremonyclient/node
+		Environment=GOEXPERIMENT=arenas
+		ExecStart=/root/go/bin/node ./...
+
+		[Install]
+		WantedBy=multi-user.target
+
+	Save and exit:
+	- ctrl o    # to save
+	- ctrl x    # to exit
+	
+	Start the node service:
+	
+	- service ceremonyclient start
+	
+	Stop the node service:
+	
+	- service ceremonyclient stop
+
+10. Get your $QUIL balance [production]
+
+	- cd ~/ceremonyclient/node
+	- GOEXPERIMENT=arenas /root/go/node/ -balance
+	
+	You should see the response below:
+	<insert response image here>
