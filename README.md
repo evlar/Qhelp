@@ -98,7 +98,7 @@ Replace `PID` with the actual process ID.
 
 ## 8. Restart Node
 
-- Renitiate a tmux session:
+- Reattach to the tmux session:
 
   ```bash
   tmux a
