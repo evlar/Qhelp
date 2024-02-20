@@ -92,7 +92,8 @@ Detach from the tmux session with `Ctrl+b` then `d` after confirming the node st
 - Restart the node with:
 
   ```bash
-  fg 
+  chmod +x poor_mans_cd.sh
+  ./poor_mans_cd.sh
   ```
 - Detach from the tmux session with `Ctrl+b` then `d` after confirming the node starts successfully.
 - Reattach at any time with `tmux a`.
