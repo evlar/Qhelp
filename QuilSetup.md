@@ -18,6 +18,7 @@ Execute the following commands to install necessary software:
 ```bash
 sudo apt -q update
 sudo apt-get install jq tmux -y  # Includes tmux installation
+sudo apt install git -y
 git --version  # Ensure git version is 2.34.1 or later
 ```
 
