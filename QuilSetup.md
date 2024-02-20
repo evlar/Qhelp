@@ -98,20 +98,31 @@ Replace `PID` with the actual process ID.
 
 ## 8. Restart Node
 
-Renitiate a tmux session:
+- Renitiate a tmux session:
 
-```bash
-tmux new -s quilnode
-```
+  ```bash
+  tmux new -s quilnode
+  ```
 
-Start the node within the tmux session:
+- Start the node within the tmux session:
 
-```bash
-GOEXPERIMENT=arenas go run ./...
-```
+  ```bash
+  GOEXPERIMENT=arenas go run ./...
+  ```
 
-Detach from the tmux session with `Ctrl+b` then `d` after confirming the node starts successfully.
+- Detach from the tmux session with `Ctrl+b` then `d` after confirming the node starts successfully.
 
-## Additional Steps
+## Additional Options
 
-Proceed with any additional setup steps as required for your node's operation, such as obtaining a node peer ID or checking your $QUIL balance, without the need to restart the node.
+- Get your Node Peer ID:
+
+  ```bash
+  cd ~/ceremonyclient/node
+  GOEXPERIMENT=arenas go run ./... -peer-id
+  ```
+- Get your $QUIL balance:
+
+  ```bash
+  cd ~/ceremonyclient/node
+  GOEXPERIMENT=arenas go run ./... -balance
+  ```
