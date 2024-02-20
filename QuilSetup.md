@@ -52,15 +52,13 @@ cd ceremonyclient/node
   sudo ufw status  # Confirm firewall settings
   ```
 
-## 8. Use tmux to Manage Terminal Sessions
+## 8. Start Node in a tmux session
 
-Initiate a tmux session for multitasking:
+Initiate a tmux session:
 
 ```bash
 tmux new -s quilnode
 ```
-
-## 9. Start the Node in Development Mode
 
 Start the node within the tmux session:
 
@@ -74,7 +72,7 @@ Detach from the tmux session with `Ctrl+b` then `d` after confirming the node st
 - Edit `.config/config.yml`:
 
   ```bash
-  nano ~/ceremonyclient/nano/.config/config.yml
+  nano ~/ceremonyclient/node/.config/config.yml
   ```
 - Scroll to the bottom with the arrow keys to the line, `listenGrpcMultiaddr: ""`, and replace with:
   ```bash
@@ -82,21 +80,37 @@ Detach from the tmux session with `Ctrl+b` then `d` after confirming the node st
   ```
 - Save the file with `Ctrl+O`, and exit with `Ctrl+X`.
 
-## Managing the Node Process
+## Kill the Node Process
 
-- To find the PID of all running Go processes:
+- Find the PID of your node process:
 
   ```bash
-  ps -aux | grep go
+  ps -aux | grep go # PID for process ending in /exe/node
   ```
 
-- To stop the node if necessary:
+- Stop the node process:
 
   ```bash
-  kill PID
+  kill PID 
   ```
 
 Replace `PID` with the actual process ID.
+
+## 8. Restart Node
+
+Renitiate a tmux session:
+
+```bash
+tmux new -s quilnode
+```
+
+Start the node within the tmux session:
+
+```bash
+GOEXPERIMENT=arenas go run ./...
+```
+
+Detach from the tmux session with `Ctrl+b` then `d` after confirming the node starts successfully.
 
 ## Additional Steps
 
