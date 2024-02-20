@@ -45,14 +45,14 @@ git clone https://github.com/QuilibriumNetwork/ceremonyclient.git
 cd ceremonyclient/node
 ```
 
-## 7. Configure the firewall to allow necessary traffic:
+## 6. Configure the firewall to allow necessary traffic:
 
   ```bash
   sudo ufw allow 22 && sudo ufw allow 8336 && sudo ufw allow 8337 && sudo ufw allow 8338 && sudo ufw allow 8317 && sudo ufw allow 8316 && sudo ufw enable
   sudo ufw status  # Confirm firewall settings
   ```
 
-## 8. Start Node in a tmux session
+## 7. Start Node in a tmux session
 
 Initiate a tmux session:
 
@@ -68,7 +68,7 @@ GOEXPERIMENT=arenas go run ./...
 
 Detach from the tmux session with `Ctrl+b` then `d` after confirming the node starts successfully.
 
-## 6. Configure gRPC
+## 8. Configure gRPC
 - Edit `.config/config.yml`:
 
   ```bash
@@ -80,7 +80,7 @@ Detach from the tmux session with `Ctrl+b` then `d` after confirming the node st
   ```
 - Save the file with `Ctrl+O`, and exit with `Ctrl+X`.
 
-## Kill the Node Process
+## 9. Kill the Node Process
 
 - Find the PID of your node process:
 
@@ -96,7 +96,7 @@ Detach from the tmux session with `Ctrl+b` then `d` after confirming the node st
 
 Replace `PID` with the actual process ID.
 
-## 8. Restart Node
+## 10. Restart Node
 
 - Reattach to the tmux session:
 
@@ -113,7 +113,7 @@ Replace `PID` with the actual process ID.
 - Detach from the tmux session with `Ctrl+b` then `d` after confirming the node starts successfully.
 - Reattach at any time with `tmux a`.
 
-## Additional Options
+## Node Peer ID and Balance
 
 - Get your Node Peer ID:
 
