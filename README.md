@@ -111,6 +111,7 @@ Replace `PID` with the actual process ID.
   ```
 
 - Detach from the tmux session with `Ctrl+b` then `d` after confirming the node starts successfully.
+- Reattach at any time with `tmux a`.
 
 ## Additional Options
 
