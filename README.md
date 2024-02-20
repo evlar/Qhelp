@@ -80,36 +80,20 @@ Detach from the tmux session with `Ctrl+b` then `d` after confirming the node st
   ```
 - Save the file with `Ctrl+O`, and exit with `Ctrl+X`.
 
-## 9. Kill the Node Process
-
-- Find the PID of your node process:
-
-  ```bash
-  ps -aux | grep go # PID for process ending in /exe/node
-  ```
-
-- Stop the node process:
-
-  ```bash
-  kill PID 
-  ```
-
-Replace `PID` with the actual process ID.
-
-## 10. Restart Node
+## 9. Restart the Node
 
 - Reattach to the tmux session:
 
   ```bash
   tmux a
   ```
+- Stop the node process with `Ctrl+z`
 
-- Start the node within the tmux session:
+- Restart the node with:
 
   ```bash
-  GOEXPERIMENT=arenas go run ./...
+  fg 
   ```
-
 - Detach from the tmux session with `Ctrl+b` then `d` after confirming the node starts successfully.
 - Reattach at any time with `tmux a`.
 
