@@ -45,18 +45,6 @@ git clone https://github.com/QuilibriumNetwork/ceremonyclient.git
 cd ceremonyclient/node
 ```
 
-## 6. Configure gRPC and Firewall Before Starting the Node
-- Edit `.config/config.yml`:
-
-  ```bash
-  nano ~/ceremonyclient/nano/.config/config.yml
-  ```
-- Scroll to the bottom with the arrow keys to the line, `listenGrpcMultiaddr: ""`, and replace with:
-  ```bash
-  listenGrpcMultiaddr: /ip4/127.0.0.1/tcp/8337
-  ```
-- Save the file with `Ctrl+O`, and exit with `Ctrl+X`.
-
 ## 7. Configure the firewall to allow necessary traffic:
 
   ```bash
@@ -81,6 +69,18 @@ GOEXPERIMENT=arenas go run ./...
 ```
 
 Detach from the tmux session with `Ctrl+b` then `d` after confirming the node starts successfully.
+
+## 6. Configure gRPC
+- Edit `.config/config.yml`:
+
+  ```bash
+  nano ~/ceremonyclient/nano/.config/config.yml
+  ```
+- Scroll to the bottom with the arrow keys to the line, `listenGrpcMultiaddr: ""`, and replace with:
+  ```bash
+  listenGrpcMultiaddr: /ip4/127.0.0.1/tcp/8337
+  ```
+- Save the file with `Ctrl+O`, and exit with `Ctrl+X`.
 
 ## Managing the Node Process
 
