@@ -101,7 +101,7 @@ Replace `PID` with the actual process ID.
 - Renitiate a tmux session:
 
   ```bash
-  tmux new -s quilnode
+  tmux a
   ```
 
 - Start the node within the tmux session:
