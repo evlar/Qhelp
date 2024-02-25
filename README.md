@@ -125,13 +125,6 @@ GOEXPERIMENT=arenas go run ./...
     GOEXPERIMENT=arenas go run ./...
     ```
 
-  - Restart the node with:
-
-    ```bash
-    cd ~/ceremonyclient/node
-    GOEXPERIMENT=arenas go run ./...
-    ```
-
 ## Configure gRPC to enable node query:
 
 - Edit `.config/config.yml`:
