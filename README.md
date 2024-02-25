@@ -155,3 +155,14 @@ GOEXPERIMENT=arenas go run ./...
   cd ~/ceremonyclient/node
   GOEXPERIMENT=arenas go run ./... -balance
   ```
+
+## Save your keys to your local computer
+- You will want to save `config.yml` and `keys.yml` in a safe place. To copy them from your VPS to your local computer run the following from your local terminal:
+- saving `config.yml`
+  ```bash
+  scp -rp root@VPS_IP_ADDRESS:/root/ceremonyclient/node/.config/config.yml /FULL_DIRECTORY_PATH_WHERE_YOU_WANT_TO_SAVE_THE_FILE
+  ```
+- saving `keys.yml`
+  ```bash
+  scp -rp root@VPS_IP_ADDRESS:/root/ceremonyclient/node/.config/keys.yml /FULL_DIRECTORY_PATH_WHERE_YOU_WANT_TO_SAVE_THE_FILE
+  ```
