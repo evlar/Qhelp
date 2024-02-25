@@ -103,6 +103,7 @@ GOEXPERIMENT=arenas go run ./...
     ```bash
     ./poor_mans_cd.sh
     ```
+  - `poor_mans_cd.sh` should auto restart if your process goes down as well as auto update new github releases. Although in my exerience it sometimes doesn't work as planned and stalls out. If this happens, go for the manual restart.
 - ### Manual Restart:
 
   - Navigate to the node window in tmux
