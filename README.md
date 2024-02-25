@@ -9,9 +9,9 @@ To set up a Quilibrium Ceremony Client node and start acquiring $QUIL, follow th
   - Cheapest available option is a [Contabo Cloud VPS 5]( https://contabo.com/en/vps/cloud-vps-5/?image=ubuntu.323&qty=1&contract=1&storage-type=vps-5-500-gb-nvme
   )
 
-- Once your VPS has been provisioned, connect via SSH from your computer's terminal by replacing `ip-address` with that of your VPS in the following command:
+- Once your VPS has been provisioned, connect via SSH from your computer's terminal by replacing `VPS_IP_ADDRESS` with that of your VPS in the following command:
   ```bash
-  ssh root@ip-address
+  ssh root@VPS_IP_ADDRESS
   ```
 
 ## 2. Install Prerequisite Software
@@ -162,7 +162,7 @@ GOEXPERIMENT=arenas go run ./...
   ```
 
 ## Save your keys to your local computer
-- You will want to save `config.yml` and `keys.yml` in a safe place. To copy them from your VPS to your local computer run the following commands from your local terminal, making sure to replace `FULL_DIRECTORY_PATH_WHERE_YOU_WANT_TO_SAVE_THE_FILE` with your prefered directory:
+- You will want to save `config.yml` and `keys.yml` in a safe place. To copy them from your VPS to your local computer run the following commands from your local terminal, making sure to replace `VPS_IP_ADDRESS` with that of the VPS you're trying to copy from, and `FULL_DIRECTORY_PATH_WHERE_YOU_WANT_TO_SAVE_THE_FILE` with your prefered directory to which you'd like to save:
 - saving `config.yml`
   ```bash
   scp -rp root@VPS_IP_ADDRESS:/root/ceremonyclient/node/.config/config.yml /FULL_DIRECTORY_PATH_WHERE_YOU_WANT_TO_SAVE_THE_FILE
