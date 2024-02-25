@@ -6,8 +6,13 @@ To set up a Quilibrium Ceremony Client node and start acquiring $QUIL, follow th
 ## 1. Provision a VPS
 
 - Choose a VPS provider and set up a server running **Ubuntu 22.04**.
+  - Cheapest available option is a [Contabo Cloud VPS 5]( https://contabo.com/en/vps/cloud-vps-5/?image=ubuntu.323&qty=1&contract=1&storage-type=vps-5-500-gb-nvme
+  )
 
-- Use SSH to connect to your VPS.
+- Once your VPS has been provisioned, connect via SSH from your computer's terminal by replacing `ip-address` with that of your VPS in the following command:
+  ```bash
+  ssh root@ip-address
+  ```
 
 ## 2. Install Prerequisite Software
 
@@ -60,7 +65,7 @@ Now reboot your server:
   ```bash
   sudo reboot
   ```
-Wait a couple minutes for your server to reboot and reconnect with SSH
+Wait a couple minutes for your server to reboot and reconnect with `ssh root@ip-address`
 
 ## 7. Start Node in a tmux session
 
