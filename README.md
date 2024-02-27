@@ -58,7 +58,7 @@ cd ceremonyclient/node
 ## 6. Increase buffer size for beter network performance and reboot:
 
   ```bash
-  echo -e "\n# Increase buffer sizes for better network performance\nnet.core.rmem_max=60000000\nnet.core.wmem_max=600000000" | sudo tee -a /etc/sysctl.conf > /dev/null && sudo sysctl -p
+  echo -e "\n# Increase buffer sizes for better network performance\nnet.core.rmem_max=600000000\nnet.core.wmem_max=600000000" | sudo tee -a /etc/sysctl.conf > /dev/null && sudo sysctl -p
   ```
 Now reboot your server:
 
