@@ -78,6 +78,7 @@ tmux new -s quilnode
 Start the node within the tmux session:
 
 ```bash
+cd ~/ceremonyclient/node
 GOEXPERIMENT=arenas go run ./...
 ```
 
