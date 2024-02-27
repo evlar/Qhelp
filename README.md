@@ -60,10 +60,10 @@ cd ceremonyclient/node
   ```bash
   echo -e "\n# Increase buffer sizes for better network performance\nnet.core.rmem_max=600000000\nnet.core.wmem_max=600000000" | sudo tee -a /etc/sysctl.conf > /dev/null && sudo sysctl -p
   ```
-Now reboot your server:
+Apply changes:
 
   ```bash
-  sudo reboot
+  sudo sysctl -p
   ```
 Wait a couple minutes for your server to reboot and reconnect with `ssh root@ip-address`
 
