@@ -55,7 +55,7 @@ cd ceremonyclient/node
   sudo ufw status  # Confirm firewall settings
   ```
 
-## 6. Increase buffer size for beter network performance and reboot:
+## 6. Increase buffer size for beter network performance:
 
   ```bash
   echo -e "\n# Increase buffer sizes for better network performance\nnet.core.rmem_max=600000000\nnet.core.wmem_max=600000000" | sudo tee -a /etc/sysctl.conf > /dev/null && sudo sysctl -p
@@ -65,7 +65,6 @@ Apply changes:
   ```bash
   sudo sysctl -p
   ```
-Wait a couple minutes for your server to reboot and reconnect with `ssh root@ip-address`
 
 ## 7. Start Node in a tmux session
 
